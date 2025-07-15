@@ -1,20 +1,17 @@
+import { Fragment } from "react/jsx-runtime";
+
+{/* Ctrl + P and >wrap is a shortcut to highlight blocks of elements with parent element. */}
 
 function Message (){
     const userName = "Andro"
-        console.log(document.body.childNodes)
-    return <div>
-        <h1>Hello {userName}</h1>
-         <a href="coconut.com">click this link </a>
-            <ul className="list-group">
-                <li className="list-group-item active" aria-current="true">An active item</li>
-                <li className="list-group-item">A second item</li>
-                <li className="list-group-item">A third item</li>
-                <li className="list-group-item">A fourth item</li>
-                <li className="list-group-item">And a fifth one</li>
-             </ul>
-        </div>
     
+    return (
+    <Fragment> {/*used for multiple element, instead of using div */}
+        <h1>Hello {userName}</h1>
+         <a href="coconut.com">click this link </a> 
+        </Fragment>
+    );
 
-}
+};
 
 export default Message;

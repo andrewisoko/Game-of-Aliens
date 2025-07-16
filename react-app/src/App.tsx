@@ -1,12 +1,8 @@
-import Message from "./components/Message"
-import ListGroup from "./components/ListGroup"
+import Alert from "./components/Alert"
 
 function App(){
-  return <div>
-    <Message/>
-    <ListGroup/>
-
-  </div>
+    
+  return 
 }
 
 export default App

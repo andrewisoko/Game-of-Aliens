@@ -1,10 +1,13 @@
+import { useState } from "react";
+
 function ListGroup(){
 
     let listCity = ["Landan","Manny","Rome","Hull","Tor vergata"];
-    let itemSelected = 0; {/* with this variable is only local to the function therefore return is excluded.
-                              to dynamically modify the variable from the website interaction you will need the built in function useState */}
- 
-   
+    // let itemSelected = 0; {/* with this variable is only local to the function therefore return is excluded.
+                            //   to dynamically modify the variable from the website interaction you will need the built in function (Hook) useState */}
+    
+    const [itemSelected,setItemSelected] = useState(-1);
+    
     return (
             <>
                 {listCity.length === 0 && <p> No Jojo</p>} {/* we use && instead of a basic ternarey statement so the else statement can be avoided
@@ -16,7 +19,7 @@ function ListGroup(){
                     {listCity.map((items,index) => 
                     <li 
                     className={itemSelected === index ? "list-group-item active" : "list-group-item"}
-                    onClick={()=> { itemSelected = index; }}
+                    onClick={()=> { setItemSelected(index) }}
                     key={items}>
                         {items}
                         </li>

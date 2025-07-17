@@ -3,13 +3,12 @@ import Nav from "./Nav"
 import '../css/Home.css'
 
 
-function Home (){
+
+function Home(){
     return(
-        <>
-            <body>
-                <Nav/>
-                <Header/>
-            </body>
+        <> 
+            <Nav/>
+            <Header/>     
         </>
     )
 };

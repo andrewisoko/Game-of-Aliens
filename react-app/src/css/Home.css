@@ -1,6 +1,25 @@
-body{
-    background-image: url('../assets/Universe.jpg');
-    background-size: cover;
-   
-    
+
+.home-background {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  object-fit: cover;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
 }

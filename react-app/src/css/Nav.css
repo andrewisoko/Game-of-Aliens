@@ -1,0 +1,52 @@
+.text-grey-color{
+    flex:1;
+    color: rgb(248, 244, 244);
+}
+.text-display{
+    display: flex;
+    color: white;
+    cursor: "pointer"
+
+}
+
+.text-display p{
+    margin-left: 50px;
+}
+
+.text-display p:hover{
+    color:aqua;
+    cursor:pointer;
+}
+
+.burger-button{
+
+height: 30px;
+width: 30px;
+margin-top: -10px;
+margin-left: auto;
+margin-right: 50px;
+position: relative;
+}
+
+
+.burger-button span{
+    height: 5px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    border-radius: 25px;
+    top:50%;
+    left: 50%;
+
+}
+
+.burger-button span:nth-child(1){
+    top:15%
+    
+}
+.burger-button span:nth-child(3){
+    top:85%
+}
+
+
+

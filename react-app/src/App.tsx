@@ -1,8 +1,13 @@
-import Alert from "./components/Alert"
+import Home from "./components/Home"
+
 
 function App(){
-    
-  return 
+ return (
+  <>
+    <Home/>
+  </>
+
+  )
 }
 
 export default App

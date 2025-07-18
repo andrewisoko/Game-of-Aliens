@@ -1,4 +1,12 @@
 
+.two-column-layout {
+    display: grid;
+    gap: 90px;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* first grid*/
+
 h2{
     font-family: 'Battle Tough', sans-serif;
     color: rgb(100, 96, 104);
@@ -11,16 +19,46 @@ h2{
 
 p{
  font-family: 'Battle Tough', sans-serif;
- margin-left: 50px;   
+ text-align: center; 
  text-shadow:  rgb(50, 50, 50) 1px 0 10px;
 }
 
-.two-column-layout {
-    display: grid;
-    gap: 60px;
-    grid-template-columns: 1fr 1fr;
+
+
+/* second grid*/
+.card {
+  width: 220px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(60,72,88,0.15);
+  overflow: hidden;
 }
 
-:-ms-input-placeholder{
-    font-family:Arial, Helvetica, sans-serif
+.card-img {
+  height: 200px;
+  display: block;
+}
+
+.wrapper{
+    position: relative;
+
+}
+
+.wrapper input{
+    width: 220px;
+    height: 27px;
+    background:rgba(255,255,255,0.3);
+    border: 2px solid white;
+    padding: 1rem 2rem;
+}
+
+.wrapper button{
+    background-color: white;
+    height: 85%;
+    aspect-ratio: 1;
+
+    position: absolute;
+    top: 7%;
+    right: 57%;
+
 }

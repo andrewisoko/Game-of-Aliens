@@ -4,6 +4,7 @@ import searchButton from '../assets/Button.png'
 
 
 const TwoGrids = () => {
+
   return (
     <div className='two-column-layout'>
       

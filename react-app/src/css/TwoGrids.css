@@ -46,10 +46,11 @@ p{
 
 .wrapper input{
     width: 220px;
-    height: 27px;
+    height: 40px;
     background:rgba(255,255,255,0.3);
     border: 2px solid white;
-    padding: 1rem 2rem;
+    padding-right: 60px;
+    text-align: left; 
 }
 
 .wrapper button{

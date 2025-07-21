@@ -26,6 +26,12 @@ p{
 
 
 /* second grid*/
+
+.attempt-count{
+    margin-top: 20px;
+    margin-left: -230px;
+    margin-bottom: -30px;
+}
 .card {
   width: 220px;
   background: #fff;

@@ -1,6 +1,6 @@
 import '../css/TwoGrids.css'
 import guessWhosThat from '../assets/Guess the man.png'
-import searchButton from '../assets/Button.png'
+
 
 
 const TwoGrids = () => {
@@ -28,9 +28,10 @@ const TwoGrids = () => {
           </ol>
         
         <div>
+            <p className='attempt-count'>0/5</p>
             <div 
             style={{
-              marginTop:60,
+              marginTop:40,
               marginBottom:15,
               marginLeft: 80,
               

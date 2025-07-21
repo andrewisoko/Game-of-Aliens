@@ -1,9 +1,45 @@
 import '../css/TwoGrids.css'
 import guessWhosThat from '../assets/Guess the man.png'
-
+import { useState } from 'react';
 
 
 const TwoGrids = () => {
+  
+  const [alienRacesAppeared,setAlienRacesAppeared] = useState(new Set())
+  
+  const alienName = () =>{
+
+
+    let alienRaces: string[] = ["Avian","Grey Alien","Brainy Martian","Reptilian","Xenomorph"]
+    const random =  Math.floor(Math.random() * alienRaces.length)
+    let alien: string = alienRaces[random]
+
+
+    if (alienRacesAppeared.size === 5){
+      console.log(alienRacesAppeared)
+      alienRacesAppeared.clear()
+    }
+    else if (alienRacesAppeared.has(alien)){
+
+      const aliensDuplicates = Array.from(alienRacesAppeared).concat(alienRaces);
+      const frequencyMap = new Map();
+
+      aliensDuplicates.forEach(alien => {
+          frequencyMap.set(alien, (frequencyMap.get(alien) || 0) + 1);
+      });
+
+      let missedAliens = aliensDuplicates.filter(alien => frequencyMap.get(alien) === 1);
+      let newAlien = missedAliens[random] 
+
+      console.log(newAlien)
+      alienRacesAppeared.add(newAlien)
+    }
+     
+    else{
+      alienRacesAppeared.add(alien)
+      console.log(alien)
+    };
+  }
 
   return (
     <div className='two-column-layout'>
@@ -20,11 +56,11 @@ const TwoGrids = () => {
 
             }}>Aliens Races</h2>
 
-              <p>Avians</p>
+              <p>Avian</p>
               <p>Brainy Martian</p>
               <p>Grey-Alien</p>
-              <p>Reptilians</p>
-              <p>Xenomorphs</p>
+              <p>Reptilian</p>
+              <p>Xenomorph</p>
           </ol>
         
         <div>
@@ -46,7 +82,7 @@ const TwoGrids = () => {
                 marginLeft:85,
               }}>
               <input type="text" placeholder="Guess the alien race"/>
-              <button> click </button>
+              <button onClick={alienName}> click </button>
             </div>
         </div>
 

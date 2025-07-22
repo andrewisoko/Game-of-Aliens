@@ -21,20 +21,13 @@ const TwoGrids = () => {
     }
     else if (alienRacesAppeared.has(alien)){
 
-      const aliensDuplicates = Array.from(alienRacesAppeared).concat(alienRaces);
-      const frequencyMap = new Map();
-
-      aliensDuplicates.forEach(alien => {
-          frequencyMap.set(alien, (frequencyMap.get(alien) || 0) + 1);
-      });
-
-      let missedAliens = aliensDuplicates.filter(alien => frequencyMap.get(alien) === 1);
-      let newAlien = missedAliens[random] 
+      const filteredAlienRaces: string[] = alienRaces.filter(missedAliens => missedAliens !== alien && !Array.from(alienRacesAppeared).includes(missedAliens))
+      const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
+      const newAlien: string = filteredAlienRaces[randomFiltered]
 
       console.log(newAlien)
       alienRacesAppeared.add(newAlien)
     }
-     
     else{
       alienRacesAppeared.add(alien)
       console.log(alien)

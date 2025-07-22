@@ -1,38 +1,55 @@
 import '../css/TwoGrids.css'
 import guessWhosThat from '../assets/Guess the man.png'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 
 const TwoGrids = () => {
-  
+
+
   const [alienRacesAppeared,setAlienRacesAppeared] = useState(new Set())
-  
+  const [userInput,setUserInput] = useState("")
+  const [correctAnswer,setCorrectAnswer] = useState(true)
+  const [correctAnswersCount,setCorrectAnswerCount] = useState(0)
+
   const alienName = () =>{
 
+    // returns a sequence of random alien race's names without the repetition of each
 
-    let alienRaces: string[] = ["Avian","Grey Alien","Brainy Martian","Reptilian","Xenomorph"]
-    const random =  Math.floor(Math.random() * alienRaces.length)
-    let alien: string = alienRaces[random]
-
-
-    if (alienRacesAppeared.size === 5){
-      console.log(alienRacesAppeared)
-      alienRacesAppeared.clear()
-    }
-    else if (alienRacesAppeared.has(alien)){
-
-      const filteredAlienRaces: string[] = alienRaces.filter(missedAliens => missedAliens !== alien && !Array.from(alienRacesAppeared).includes(missedAliens))
-      const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
-      const newAlien: string = filteredAlienRaces[randomFiltered]
-
-      console.log(newAlien)
-      alienRacesAppeared.add(newAlien)
-    }
-    else{
-      alienRacesAppeared.add(alien)
-      console.log(alien)
-    };
+    return "avian"
   }
+
+    // let alienRaces: string[] = ["Avian","Grey Alien","Brainy Martian","Reptilian","Xenomorph"]
+    // const random =  Math.floor(Math.random() * alienRaces.length)
+    // let alien: string = alienRaces[random].toLowerCase()
+
+    // if (alienRacesAppeared.size === 5){
+    //   alienRacesAppeared.clear()
+    //   return alien
+    // }
+    // else if (alienRacesAppeared.has(alien)){
+
+    //   const filteredAlienRaces: string[] = alienRaces.filter(missedAliens => missedAliens !== alien && !Array.from(alienRacesAppeared).includes(missedAliens))
+    //   const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
+    //   const newAlien: string = filteredAlienRaces[randomFiltered].toLowerCase()
+
+    //   alienRacesAppeared.add(newAlien)
+    //   return newAlien
+    // }
+    // else{
+    //   alienRacesAppeared.add(alien)
+    //   return alien
+    //   };
+    // };
+  
+  const checkAnswers = () => {
+    if (userInput.toLowerCase() === alienName()){
+         correctAnswersCount + 1
+         console.log(correctAnswersCount)
+    }else{
+      console.log(`no buono ${alienName()}`)
+    };
+    
+  };
 
   return (
     <div className='two-column-layout'>
@@ -57,7 +74,7 @@ const TwoGrids = () => {
           </ol>
         
         <div>
-            <p className='attempt-count'>0/5</p>
+            <p className='attempt-count'>{`${correctAnswersCount}/5`}</p>
             <div 
             style={{
               marginTop:40,
@@ -74,8 +91,11 @@ const TwoGrids = () => {
               style={{
                 marginLeft:85,
               }}>
-              <input type="text" placeholder="Guess the alien race"/>
-              <button onClick={alienName}> click </button>
+              <input value={userInput} 
+              onChange={newVal => setUserInput(newVal.target.value)} 
+              placeholder="Guess the alien race" 
+              type="text"/>
+              <button onClick={checkAnswers}> click </button>
             </div>
         </div>
 

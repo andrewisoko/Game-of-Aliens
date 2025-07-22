@@ -1,6 +1,8 @@
 import '../css/TwoGrids.css'
 import guessWhosThat from '../assets/Guess the man.png'
 import { useState,useEffect } from 'react';
+import Modal from './Modal';
+
 
 
 const TwoGrids = () => {
@@ -8,7 +10,7 @@ const TwoGrids = () => {
 
   const [alienRacesAppeared,setAlienRacesAppeared] = useState(new Set())
   const [userInput,setUserInput] = useState("")
-  const [correctAnswer,setCorrectAnswer] = useState(true)
+  const [correctAnswer,setCorrectAnswer] = useState(false)
   const [correctAnswersCount,setCorrectAnswerCount] = useState(0)
 
   const alienName = () =>{
@@ -43,8 +45,11 @@ const TwoGrids = () => {
   
   const checkAnswers = () => {
     if (userInput.toLowerCase() === alienName()){
-         correctAnswersCount + 1
-         console.log(correctAnswersCount)
+      setCorrectAnswerCount(correctAnswersCount + 1)
+      if (correctAnswersCount === 5){
+          setCorrectAnswerCount(5)
+      }
+         
     }else{
       console.log(`no buono ${alienName()}`)
     };
@@ -98,7 +103,7 @@ const TwoGrids = () => {
               <button onClick={checkAnswers}> click </button>
             </div>
         </div>
-
+        <Modal/>
     </div>
   )
 };

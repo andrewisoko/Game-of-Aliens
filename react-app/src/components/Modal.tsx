@@ -12,21 +12,19 @@ import reptilianWrong from '../assets/Reptilian wrong.png'
 import xenomorphCorrect from '../assets/Xenomorph correct.png'
 import xenomorphWrong from '../assets/Xenomorph wrong.png'
 
+type ModalProps = {
+  closeModal: (open: boolean) => void;
+};
 
-const Modal = () => {
+const Modal = ({ closeModal }: ModalProps) => {
 
-    const [modal,setModal] = useState(false);
-
-    const removeModal = () => {
-        setModal(!modal)
-    }
     const correctImages = [avianCorrect,greyAlienCorrect,martianCorrect,reptilianCorrect,xenomorphCorrect]
     const wrongImages = [avianWrong,greyAlienWrong,martianWrong,reptilianWrong,xenomorphWrong]
 
     return(
         <div className="modal-overlay">
     <div className="modal-content">
-      <button className="modal-close" onClick={removeModal} aria-label="Close modal"/>
+      <button className="modal-close" onClick={() => closeModal(false)} aria-label="Close modal"/>
       <img src={avianCorrect} className="modal-img" alt="Alien Race Result"/>
     </div>
   </div>

@@ -12,6 +12,7 @@ const TwoGrids = () => {
   const [userInput,setUserInput] = useState("")
   const [correctAnswer,setCorrectAnswer] = useState(false)
   const [correctAnswersCount,setCorrectAnswerCount] = useState(0)
+  const [openModal,setOpenModal] = useState(false)
 
   const alienName = () =>{
 
@@ -44,6 +45,8 @@ const TwoGrids = () => {
     // };
   
   const checkAnswers = () => {
+    setOpenModal(true)
+
     if (userInput.toLowerCase() === alienName()){
       setCorrectAnswerCount(correctAnswersCount + 1)
       if (correctAnswersCount === 5){
@@ -100,10 +103,10 @@ const TwoGrids = () => {
               onChange={newVal => setUserInput(newVal.target.value)} 
               placeholder="Guess the alien race" 
               type="text"/>
-              <button onClick={checkAnswers}> click </button>
+              <button onClick={checkAnswers}>click</button>
             </div>
         </div>
-        <Modal/>
+        {openModal && <Modal closeModal={setOpenModal}/>}
     </div>
   )
 };

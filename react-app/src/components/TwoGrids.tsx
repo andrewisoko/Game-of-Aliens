@@ -8,61 +8,80 @@ import Modal from './Modal';
 
 const TwoGrids = () => {
 
-
   const [alienRacesAppeared,setAlienRacesAppeared] = useState(new Set())
+
   const [userInput,setUserInput] = useState("")
   const [imageDisplay,setImageDisplay] = useState("")
+
   const [correctAnswersCount,setCorrectAnswerCount] = useState(0)
+  const [attemptCount,setAttemptCount] = useState(0)
+
   const [openModal,setOpenModal] = useState(false)
+  const [gameOver,setGameOver] = useState(false)
+  const [gameWin,setGameWin] = useState(false)
+
 
   const alienName = () =>{
 
     // returns a sequence of random alien race's names without the repetition of each
 
-    return "martian"
-  }
+  //   return "martian"
+  // }
 
-    // let alienRaces: string[] = ["Avian","Grey-Alien","Martian","Reptilian","Xenomorph"]
-    // const random =  Math.floor(Math.random() * alienRaces.length)
-    // let alien: string = alienRaces[random].toLowerCase()
+    let alienRaces: string[] = ["Avian","Grey-Alien","Martian","Reptilian","Xenomorph"]
+    const random =  Math.floor(Math.random() * alienRaces.length)
+    let alien: string = alienRaces[random].toLowerCase()
 
-    // if (alienRacesAppeared.size === 5){
-    //   alienRacesAppeared.clear()
-    //   return alien
-    // }
-    // else if (alienRacesAppeared.has(alien)){
+    if (alienRacesAppeared.size === 5){
+      alienRacesAppeared.clear()
+      return alien
+    }
+    else if (alienRacesAppeared.has(alien)){
 
-    //   const filteredAlienRaces: string[] = alienRaces.filter(missedAliens => missedAliens !== alien && !Array.from(alienRacesAppeared).includes(missedAliens))
-    //   const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
-    //   const newAlien: string = filteredAlienRaces[randomFiltered].toLowerCase()
+      const filteredAlienRaces: string[] = alienRaces.filter(missedAliens => missedAliens !== alien && !Array.from(alienRacesAppeared).includes(missedAliens))
+      const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
+      const newAlien: string = filteredAlienRaces[randomFiltered].toLowerCase()
 
-    //   alienRacesAppeared.add(newAlien)
-    //   return newAlien
-    // }
-    // else{
-    //   alienRacesAppeared.add(alien)
-    //   return alien
-    //   };
-    // };
-    
-    const checkAnswers = () => {
-      
-      if (userInput.toLowerCase() === alienName()){
+      console.log(filteredAlienRaces)
+      alienRacesAppeared.add(newAlien)
+      return newAlien
+    }
+    else{
+      alienRacesAppeared.add(alien)
+      console.log(`alien not in list ${alien}`)
+      return alien
+      };
+    };
+  
+  const checkAnswers = () => {
 
-        setImageDisplay( `/src/assets/${alienName()} correct.png`)
+      const gameAlienName:string= alienName()
+
+
+      if (userInput.toLowerCase() === gameAlienName){
+
+        setImageDisplay( `/src/assets/${gameAlienName} correct.png`)
         setOpenModal(true)
+        setAttemptCount(() => attemptCount + 1)
         setCorrectAnswerCount(correctAnswersCount + 1)
 
-      if (correctAnswersCount === 5){
-          setCorrectAnswerCount(5)
+          if (correctAnswersCount === 5){
+              setGameWin(true)
+          }
       }
-         
-    }else{
-      setImageDisplay( `/src/assets/${alienName()} wrong.png`)
-      setOpenModal(true)
-    };
-    
-  };
+      else{
+        setImageDisplay( `/src/assets/${gameAlienName} wrong.png`)
+        setOpenModal(true)
+        setAttemptCount(() => attemptCount + 1)
+        };
+      
+      };
+
+  useEffect(() => {
+      if (attemptCount === 7 && !gameWin){
+        setGameOver(true)
+    } 
+  },[attemptCount,gameWin,setGameOver])
 
   return (
     <div className='two-column-layout'>
@@ -86,32 +105,45 @@ const TwoGrids = () => {
               <p>Xenomorph</p>
           </ol>
         
-        <div>
-            <p className='attempt-count'>{`${correctAnswersCount}/5`}</p>
-            <div 
-            style={{
-              marginTop:40,
-              marginBottom:15,
-              marginLeft: 80,
-              
-            }}
-            className='card'>
-              <img src={guessWhosThat} alt="Card Image" className="card-img"></img>
+          {gameOver &&(
+            <div>
+              <p style={{marginLeft:5}} className='correct-count'>{`${correctAnswersCount}/5`} </p>
+              <h1 
+              className='gameover'> 
+              GAME <br />
+              OVER</h1>
             </div>
-       
-            <div 
-              className='wrapper'
+          )}
+          {!gameOver && (
+            
+          <div>
+              <p className='correct-count'>{`${correctAnswersCount}/5`} </p>
+              <div 
               style={{
-                marginLeft:85,
-              }}>
-              <input value={userInput} 
-              onChange={newVal => setUserInput(newVal.target.value)} 
-              placeholder="Guess the alien race" 
-              type="text"/>
-              <button onClick={checkAnswers}>click</button>
-            </div>
-        </div>
-        {openModal && <Modal closeModal={setOpenModal} alienImage = {imageDisplay}/>}
+                marginTop:40,
+                marginBottom:15,
+                marginLeft: 80,
+                
+              }}
+              className='card'>
+                <img src={guessWhosThat} alt="Card Image" className="card-img"></img>
+              </div>
+        
+              <div 
+                className='wrapper'
+                style={{
+                  marginLeft:85,
+                }}>
+                <input value={userInput} 
+                onChange={newVal => setUserInput(newVal.target.value)} 
+                placeholder="Guess the alien race" 
+                type="text"/>
+                <button onClick={checkAnswers} disabled={gameOver}>click</button>
+              </div>
+          </div>
+        )
+      };
+    {openModal && <Modal closeModal={setOpenModal} alienImage ={imageDisplay}/>}
     </div>
   )
 };

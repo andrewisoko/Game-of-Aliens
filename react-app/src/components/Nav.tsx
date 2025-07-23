@@ -2,7 +2,7 @@ import '../css/Nav.css'
 
 function Nav(){
 
-    return <nav className="navbar">
+    return <nav className="navbar" style={{marginTop:10}}>
         <div className='text-display'> 
             <p>Facebook</p>
             <p>Tiktok</p>

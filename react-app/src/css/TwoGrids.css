@@ -2,7 +2,7 @@
 .two-column-layout {
     display: grid;
     gap: 90px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr  1fr;
 }
 
 /* first grid*/
@@ -27,7 +27,7 @@ p{
 
 /* second grid*/
 
-.attempt-count{
+.correct-count{
     margin-top: 20px;
     margin-left: -230px;
     margin-bottom: -30px;
@@ -75,3 +75,21 @@ input{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
+.gameover {
+  margin-top: 70px;
+  font-size: 5.5em;
+  text-align: center;
+  text-shadow:  rgb(50, 50, 50) 1px 0 10px;;
+  font-family: 'Battle Tough', sans-serif;  
+  animation: flashSiren 0.5s linear infinite;
+  
+}
+
+@keyframes flashSiren {
+  0%, 50% {
+    color: rgb(208, 0, 255);
+  }
+  50.01%, 100% {
+    color: blue;
+  }
+}

@@ -3,10 +3,10 @@ function Header(){
 
     return(
          <div className="text-center" style={
-            {   marginTop: 50,   
+            {   marginTop: 30,   
             }}>       
         <h1 className='fw-bold'>The Outside World</h1>
-        <p > Can you find the right alien? 🌚</p>
+        <p style={{marginTop:20}}> find the right alien in <strong style={{color:'gold'}}>7</strong> attemps and prove humanity wrong.</p>
     </div>
     )
 };

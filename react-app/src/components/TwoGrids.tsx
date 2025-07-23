@@ -1,7 +1,8 @@
 import '../css/TwoGrids.css'
 import guessWhosThat from '../assets/Guess the man.png'
-import { useState,useEffect } from 'react';
+import { useState,useEffect} from 'react';
 import Modal from './Modal';
+// import AlienImages from './AlienImages';
 
 
 
@@ -10,7 +11,7 @@ const TwoGrids = () => {
 
   const [alienRacesAppeared,setAlienRacesAppeared] = useState(new Set())
   const [userInput,setUserInput] = useState("")
-  const [correctAnswer,setCorrectAnswer] = useState(false)
+  const [imageDisplay,setImageDisplay] = useState("")
   const [correctAnswersCount,setCorrectAnswerCount] = useState(0)
   const [openModal,setOpenModal] = useState(false)
 
@@ -18,10 +19,10 @@ const TwoGrids = () => {
 
     // returns a sequence of random alien race's names without the repetition of each
 
-    return "avian"
+    return "martian"
   }
 
-    // let alienRaces: string[] = ["Avian","Grey Alien","Brainy Martian","Reptilian","Xenomorph"]
+    // let alienRaces: string[] = ["Avian","Grey-Alien","Martian","Reptilian","Xenomorph"]
     // const random =  Math.floor(Math.random() * alienRaces.length)
     // let alien: string = alienRaces[random].toLowerCase()
 
@@ -43,18 +44,22 @@ const TwoGrids = () => {
     //   return alien
     //   };
     // };
-  
-  const checkAnswers = () => {
-    setOpenModal(true)
+    
+    const checkAnswers = () => {
+      
+      if (userInput.toLowerCase() === alienName()){
 
-    if (userInput.toLowerCase() === alienName()){
-      setCorrectAnswerCount(correctAnswersCount + 1)
+        setImageDisplay( `/src/assets/${alienName()} correct.png`)
+        setOpenModal(true)
+        setCorrectAnswerCount(correctAnswersCount + 1)
+
       if (correctAnswersCount === 5){
           setCorrectAnswerCount(5)
       }
          
     }else{
-      console.log(`no buono ${alienName()}`)
+      setImageDisplay( `/src/assets/${alienName()} wrong.png`)
+      setOpenModal(true)
     };
     
   };
@@ -75,7 +80,7 @@ const TwoGrids = () => {
             }}>Aliens Races</h2>
 
               <p>Avian</p>
-              <p>Brainy Martian</p>
+              <p>Martian</p>
               <p>Grey-Alien</p>
               <p>Reptilian</p>
               <p>Xenomorph</p>
@@ -106,7 +111,7 @@ const TwoGrids = () => {
               <button onClick={checkAnswers}>click</button>
             </div>
         </div>
-        {openModal && <Modal closeModal={setOpenModal}/>}
+        {openModal && <Modal closeModal={setOpenModal} alienImage = {imageDisplay}/>}
     </div>
   )
 };

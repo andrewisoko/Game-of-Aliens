@@ -75,6 +75,8 @@ input{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
+/*conditionals */
+
 .gameover {
   margin-top: 70px;
   font-size: 5.5em;
@@ -93,3 +95,32 @@ input{
     color: blue;
   }
 }
+
+.win-wrapper{
+  position: relative;
+}
+
+.five-on-five{
+    margin-top: 20px;
+    margin-left: -230px;
+    margin-bottom: -30px;
+    animation: goldfusion 10s linear infinite;
+  }
+  
+  .gold-star{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    margin-left: 220px;
+    bottom: 0.5px;
+}
+
+@keyframes goldfusion{
+  0%, 25%, 50%{
+    color: rgb(148, 148, 37);
+  }
+  50%, 75%, 100%{
+    color: rgb(164, 146, 45);
+  }
+}
+

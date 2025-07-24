@@ -26,9 +26,6 @@ const TwoGrids = () => {
 
     // returns a sequence of random alien race's names without the repetition of each
 
-  //   return "martian"
-  // }
-
     let alienRaces: string[] = ["Avian","Grey-Alien","Martian","Reptilian","Xenomorph"]
     const random =  Math.floor(Math.random() * alienRaces.length)
     let alien: string = alienRaces[random].toLowerCase()
@@ -116,7 +113,13 @@ const TwoGrids = () => {
           {!gameOver && (
             
           <div>
-              <p className='correct-count'>{`${correctAnswersCount}/5`} </p>
+                {gameWin && (
+                  <div className='win-wrapper'>
+                     <img className="gold-star" src="/src/assets/gold-star.png" alt="gold star" />
+                     <p className='five-on-five'> 5/5</p>
+                  </div>
+                )}
+              {!gameWin && (<p className='correct-count'>{`${correctAnswersCount}/5`} </p>)}
               <div 
               style={{
                 marginTop:40,
@@ -139,9 +142,18 @@ const TwoGrids = () => {
                 type="text"/>
                 <button onClick={checkAnswers} disabled={gameWin}>click</button>
               </div>
+                {gameWin && (
+                  <div style={{
+                    marginTop:10,
+                    marginLeft:100,
+                    }}>
+                  <a href='/src/assets/Alien NFT.png' download>click here for the Alien NFT</a>
+                  </div>
+                )}
           </div>
         )
       };
+     
     {openModal && <Modal closeModal={setOpenModal} alienImage ={imageDisplay}/>}
     </div>
   )

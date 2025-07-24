@@ -2,15 +2,16 @@ import '../css/TwoGrids.css'
 import guessWhosThat from '../assets/Guess the man.png'
 import { useState,useEffect} from 'react';
 import Modal from './Modal';
-// import AlienImages from './AlienImages';
+
 
 
 
 const TwoGrids = () => {
 
+
   const [alienRacesAppeared,setAlienRacesAppeared] = useState(new Set())
 
-  const [userInput,setUserInput] = useState("")
+  const [userInput,setUserInput] = useState("") 
   const [imageDisplay,setImageDisplay] = useState("")
 
   const [correctAnswersCount,setCorrectAnswerCount] = useState(0)
@@ -38,26 +39,24 @@ const TwoGrids = () => {
     }
     else if (alienRacesAppeared.has(alien)){
 
-      const filteredAlienRaces: string[] = alienRaces.filter(missedAliens => missedAliens !== alien && !Array.from(alienRacesAppeared).includes(missedAliens))
-      const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
-      const newAlien: string = filteredAlienRaces[randomFiltered].toLowerCase()
+        const filteredAlienRaces= alienRaces.filter(element => !alienRacesAppeared.has(element.toLowerCase()))
+        const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
+        let newAlien: string = filteredAlienRaces[randomFiltered].toLowerCase()
+        alienRacesAppeared.add(newAlien)
 
-      console.log(filteredAlienRaces)
-      alienRacesAppeared.add(newAlien)
-      return newAlien
+        return newAlien
     }
     else{
+
       alienRacesAppeared.add(alien)
-      console.log(`alien not in list ${alien}`)
       return alien
       };
     };
   
   const checkAnswers = () => {
 
-      const gameAlienName:string= alienName()
-
-
+      const gameAlienName:string = alienName()
+      
       if (userInput.toLowerCase() === gameAlienName){
 
         setImageDisplay( `/src/assets/${gameAlienName} correct.png`)
@@ -65,9 +64,6 @@ const TwoGrids = () => {
         setAttemptCount(() => attemptCount + 1)
         setCorrectAnswerCount(correctAnswersCount + 1)
 
-          if (correctAnswersCount === 5){
-              setGameWin(true)
-          }
       }
       else{
         setImageDisplay( `/src/assets/${gameAlienName} wrong.png`)
@@ -78,10 +74,13 @@ const TwoGrids = () => {
       };
 
   useEffect(() => {
-      if (attemptCount === 7 && !gameWin){
+      if (correctAnswersCount === 5){
+              setGameWin(true)
+          }
+      else if (!gameWin && attemptCount === 7){
         setGameOver(true)
-    } 
-  },[attemptCount,gameWin,setGameOver])
+         }
+       },[attemptCount,gameWin,setGameOver])
 
   return (
     <div className='two-column-layout'>
@@ -138,7 +137,7 @@ const TwoGrids = () => {
                 onChange={newVal => setUserInput(newVal.target.value)} 
                 placeholder="Guess the alien race" 
                 type="text"/>
-                <button onClick={checkAnswers} disabled={gameOver}>click</button>
+                <button onClick={checkAnswers} disabled={gameWin}>click</button>
               </div>
           </div>
         )

@@ -6,26 +6,33 @@
     display: flex;
     color: white;
     cursor: "pointer"
-
 }
 
-.text-display p{
+.text-display a{
+    font-family: 'Battle Tough', sans-serif;
     margin-left: 50px;
+    color: white;
+    text-decoration: none;
 }
 
-.text-display p:hover{
-    color:aqua;
+.text-display a:hover{
+    background-color:aqua;
     cursor:pointer;
 }
 
 .burger-button{
 
-height: 30px;
-width: 30px;
-margin-top: -10px;
-margin-left: auto;
-margin-right: 50px;
-position: relative;
+    height: 30px;
+    width: 30px;
+    margin-top: -10px;
+    margin-left: auto;
+    margin-right: 50px;
+    position: relative;
+}
+
+.burger-button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
+  transition: box-shadow 0.3s ease;           
 }
 
 
@@ -42,11 +49,52 @@ position: relative;
 
 .burger-button span:nth-child(1){
     top:15%
-    
 }
+
+.burger-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
 .burger-button span:nth-child(3){
     top:85%
 }
 
 
 
+
+.menu {
+  width: 250px;
+  margin-right: 10px;
+  background: rgb(50, 34, 142);
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 40px;
+  right: 0;
+  padding: 10px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-shadow: 0px 3px 0px #181818,
+    0px 14px 10px rgba(0,0,0,0.15),
+    0px 24px 2px rgba(0,0,0,0.1),
+    0px 34px 30px rgba(0,0,0,0.1);
+  
+   border-radius: 4px;
+   z-index: 1000; 
+}
+
+.menu a{
+    color: white;
+    text-decoration: none;
+
+}
+
+
+
+/* .hidden{
+    display: none;
+}
+
+.visible{
+    display: inherit;
+}
+
+ */

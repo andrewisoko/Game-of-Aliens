@@ -117,10 +117,10 @@ input{
 
 @keyframes goldfusion{
   0%, 25%, 50%{
-    color: rgb(148, 148, 37);
+    color: rgb(255, 255, 164);
   }
   50%, 75%, 100%{
-    color: rgb(164, 146, 45);
+    color: rgb(205, 197, 152);
   }
 }
 

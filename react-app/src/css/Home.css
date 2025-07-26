@@ -1,11 +1,4 @@
 
-.home-background {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
 .background-video {
   position: absolute;
   top: 50%;
@@ -23,3 +16,5 @@
   position: relative;
   z-index: 1;
 }
+
+

@@ -40,12 +40,15 @@ const TwoGrids = () => {
         const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
         let newAlien: string = filteredAlienRaces[randomFiltered].toLowerCase()
         alienRacesAppeared.add(newAlien)
-
+        
+        // console.log(filteredAlienRaces)
+        // console.log(`new alien ${newAlien}`)
         return newAlien
     }
     else{
 
       alienRacesAppeared.add(alien)
+      // console.log(`not in list alien ${alien}`)
       return alien
       };
     };

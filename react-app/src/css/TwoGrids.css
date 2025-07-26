@@ -124,3 +124,31 @@ input{
   }
 }
 
+@media (max-width: 900px) {
+  .two-column-layout {
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+  }
+
+  
+  .correct-count, 
+  .five-on-five {
+    margin-left: 0; 
+  }
+
+  .card {
+    width: 100%;  
+    max-width: 300px; 
+    margin: 0 auto; 
+  }
+
+  .wrapper input {
+    width: 100%; 
+    max-width: 300px;
+  }
+
+  .wrapper button {
+    right: 10%;   
+  }
+}
+

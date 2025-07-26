@@ -48,7 +48,7 @@ function Nav(){
             <hr />
                 <a href="https://www.bbc.co.uk/news/articles/c39jj9vkr34o">Strongest evidence of life outside earth</a>
             <hr />
-                <a href="https://thereader.mitpress.mit.edu/history-speculation-about-aliens/">The first alien propagandist</a>
+                <a href="https://thereader.mitpress.mit.edu/history-speculation-about-aliens/">The first alien's propagandist</a>
             <hr />
             <hr />
                 <a href="https://www.britannica.com/topic/unidentified-flying-object/Other-investigations-of-UFOs">UFO</a>

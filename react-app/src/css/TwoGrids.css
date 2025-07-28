@@ -3,6 +3,8 @@
     display: grid;
     gap: 90px;
     grid-template-columns: 1fr  1fr;
+    justify-items: center;   
+    align-items: center;  
 }
 
 /* first grid*/
@@ -29,7 +31,7 @@ p{
 
 .correct-count{
     margin-top: 20px;
-    margin-left: -230px;
+    text-align: center;
     margin-bottom: -30px;
 }
 .card {
@@ -65,8 +67,8 @@ p{
     aspect-ratio: 1;
 
     position: absolute;
-    top: 7%;
-    right: 57%;
+    top: 7%;           
+    right: 1%; 
 
 }
 
@@ -124,10 +126,13 @@ input{
   }
 }
 
+
+
 @media (max-width: 900px) {
   .two-column-layout {
     grid-template-columns: 1fr; 
     gap: 40px; 
+    justify-items: center;
   }
 
   
@@ -139,8 +144,8 @@ input{
   .card {
     width: 100%;  
     max-width: 300px; 
-    margin: 0 auto; 
   }
+
 
   .wrapper input {
     width: 100%; 
@@ -148,7 +153,9 @@ input{
   }
 
   .wrapper button {
-    right: 10%;   
+    right: 0.5; 
+      
   }
 }
+
 

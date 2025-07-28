@@ -127,7 +127,6 @@ const TwoGrids = () => {
               style={{
                 marginTop:40,
                 marginBottom:15,
-                marginLeft: 80,
                 
               }}
               className='card'>
@@ -137,7 +136,6 @@ const TwoGrids = () => {
               <div 
                 className='wrapper'
                 style={{
-                  marginLeft:85,
                 }}>
                 <input value={userInput} 
                 onChange={newVal => setUserInput(newVal.target.value)} 
@@ -148,7 +146,6 @@ const TwoGrids = () => {
                 {gameWin && (
                   <div style={{
                     marginTop:10,
-                    marginLeft:100,
                     }}>
                   <a href='/src/assets/Alien NFT.png' download>click here for the Alien NFT</a>
                   </div>

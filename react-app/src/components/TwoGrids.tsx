@@ -26,32 +26,34 @@ const TwoGrids = () => {
 
     // returns a sequence of random alien race's names without the repetition of each
 
-    let alienRaces: string[] = ["Avian","Grey-Alien","Martian","Reptilian","Xenomorph"]
-    const random =  Math.floor(Math.random() * alienRaces.length)
-    let alien: string = alienRaces[random].toLowerCase()
+    return 'martian'
+  }
+    // let alienRaces: string[] = ["Avian","Grey-Alien","Martian","Reptilian","Xenomorph"]
+    // const random =  Math.floor(Math.random() * alienRaces.length)
+    // let alien: string = alienRaces[random].toLowerCase()
 
-    if (alienRacesAppeared.size === 5){
-      alienRacesAppeared.clear()
-      return alien
-    }
-    else if (alienRacesAppeared.has(alien)){
+    // if (alienRacesAppeared.size === 5){
+    //   alienRacesAppeared.clear()
+    //   return alien
+    // }
+    // else if (alienRacesAppeared.has(alien)){
 
-        const filteredAlienRaces= alienRaces.filter(element => !alienRacesAppeared.has(element.toLowerCase()))
-        const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
-        let newAlien: string = filteredAlienRaces[randomFiltered].toLowerCase()
-        alienRacesAppeared.add(newAlien)
+    //     const filteredAlienRaces= alienRaces.filter(element => !alienRacesAppeared.has(element.toLowerCase()))
+    //     const randomFiltered = Math.floor(Math.random() * filteredAlienRaces.length)
+    //     let newAlien: string = filteredAlienRaces[randomFiltered].toLowerCase()
+    //     alienRacesAppeared.add(newAlien)
         
-        // console.log(filteredAlienRaces)
-        // console.log(`new alien ${newAlien}`)
-        return newAlien
-    }
-    else{
+    //     // console.log(filteredAlienRaces)
+    //     // console.log(`new alien ${newAlien}`)
+    //     return newAlien
+    // }
+    // else{
 
-      alienRacesAppeared.add(alien)
-      // console.log(`not in list alien ${alien}`)
-      return alien
-      };
-    };
+    //   alienRacesAppeared.add(alien)
+    //   // console.log(`not in list alien ${alien}`)
+    //   return alien
+    //   };
+    // };
   
   const checkAnswers = () => {
 
@@ -146,6 +148,7 @@ const TwoGrids = () => {
                 {gameWin && (
                   <div style={{
                     marginTop:10,
+                    textAlign:'center'
                     }}>
                   <a href='/src/assets/Alien NFT.png' download>click here for the Alien NFT</a>
                   </div>

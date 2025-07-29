@@ -104,7 +104,7 @@ input{
 
 .five-on-five{
     margin-top: 20px;
-    margin-left: -230px;
+    text-align: center;
     margin-bottom: -30px;
     animation: goldfusion 10s linear infinite;
   }
@@ -113,7 +113,7 @@ input{
     position: absolute;
     height: 30px;
     width: 30px;
-    margin-left: 220px;
+    margin-left: 160px;
     bottom: 0.5px;
 }
 

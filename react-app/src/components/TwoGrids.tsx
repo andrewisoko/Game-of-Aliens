@@ -60,7 +60,7 @@ const TwoGrids = () => {
       
       if (userInput.toLowerCase() === gameAlienName){
 
-        setImageDisplay( `/assets/${gameAlienName} correct.png`)
+        setImageDisplay( `/src/assets/${gameAlienName} correct.png`)
         setOpenModal(true)
         setAttemptCount(() => attemptCount + 1)
         setCorrectAnswerCount(correctAnswersCount + 1)

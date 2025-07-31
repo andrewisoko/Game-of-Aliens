@@ -60,14 +60,26 @@ const TwoGrids = () => {
       
       if (userInput.toLowerCase() === gameAlienName){
 
-        setImageDisplay( `/src/assets/${gameAlienName} correct.png`)
+        const imageUrlCorrect = new URL(
+        `../assets/${gameAlienName} correct.png`, 
+        import.meta.url
+         ).href;
+        setImageDisplay(imageUrlCorrect)
+
+        // setImageDisplay( `/src/assets/${gameAlienName} correct.png`)
         setOpenModal(true)
         setAttemptCount(() => attemptCount + 1)
         setCorrectAnswerCount(correctAnswersCount + 1)
 
       }
       else{
-        setImageDisplay( `/src/assets/${gameAlienName} wrong.png`)
+
+         const imageUrlWrong = new URL(
+        `../assets/${gameAlienName} wrong.png`, 
+        import.meta.url
+         ).href;
+        setImageDisplay(imageUrlWrong)
+        // setImageDisplay( `/src/assets/${gameAlienName} wrong.png`)
         setOpenModal(true)
         setAttemptCount(() => attemptCount + 1)
         };

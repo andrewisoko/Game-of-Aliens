@@ -21,12 +21,14 @@ const TwoGrids = () => {
   const [gameOver,setGameOver] = useState(false)
   const [gameWin,setGameWin] = useState(false)
 
+  const goldStar = new URL("/src/assets/gold-star.png",import.meta.url).href
+  const AlienNFT = new URL("/src/assets/Alien NFT.png",import.meta.url).href
+
 
   const alienName = () =>{
 
     // returns a sequence of random alien race's names without the repetition of each
-
- 
+  
     let alienRaces: string[] = ["Avian","Grey-Alien","Martian","Reptilian","Xenomorph"]
     const random =  Math.floor(Math.random() * alienRaces.length)
     let alien: string = alienRaces[random].toLowerCase()
@@ -131,7 +133,7 @@ const TwoGrids = () => {
           <div>
                 {gameWin && (
                   <div className='win-wrapper'>
-                     <img className="gold-star" src="/src/assets/gold-star.png" alt="gold star" />
+                     <img className="gold-star" src={goldStar} alt="gold star" />
                      <p className='five-on-five'> 5/5</p>
                   </div>
                 )}
@@ -161,7 +163,7 @@ const TwoGrids = () => {
                     marginTop:10,
                     textAlign:'center'
                     }}>
-                  <a href='/src/assets/Alien NFT.png' download>click here for the Alien NFT</a>
+                  <a href={AlienNFT} download>click here for the Alien NFT</a>
                   </div>
                 )}
           </div>
